@@ -1,0 +1,16 @@
+root
+ftp
+ghost
+mysql
+linux
+webadmin
+master
+wwwadmin
+temp
+admin
+demo
+guest
+mail
+oracle
+postgres
+www

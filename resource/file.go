@@ -1,23 +1,23 @@
-package main
+package resource
 
 import (
 	"bufio"
-	"errors"
 	"fmt"
 	"io"
 	"os"
+	"errors"
 )
 
 var ErrFileNotFound = errors.New("The file not found")
 
-func ReadFile(path string) (*[]string, error){
+func readFile(path string) (*[]string, error){
 
-	content := make([]string, 10, 10)
+	content := make([]string, 0, 0)
 
 	file, err := os.Open(path)
 	if err != nil {
-		fmt.Println("read file err:", err)
-		return nil, nil
+		//fmt.Println("read file err:", err)
+		return nil, err
 	}
 	defer file.Close()
 
@@ -28,22 +28,19 @@ func ReadFile(path string) (*[]string, error){
 			fmt.Println("read err:", err)
 			break
 		}
-		content = append(content, string(str))
 		if err == io.EOF {
 			break
 		}
+		content = append(content, string(str))
 	}
 	return &content, nil
 }
 
-func main()  {
-	contents, err := ReadFile("./password_ssh.txt")
+func ReadLines(path string) *[]string {
+	contents, err := readFile(path)
 	if err != nil{
-		fmt.Println(err)
-		return
-	}
-	for _, line := range *contents {
-		fmt.Printf(line)
+		panic(ErrFileNotFound)
 	}
 
+	return contents
 }
