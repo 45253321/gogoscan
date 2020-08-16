@@ -106,8 +106,8 @@ func (self *SSHScan) Scan(){
 }
 
 func main()  {
-	sc := SSHScan{Ip:"10.10.10.72",
-		Port:22,
+	sc := SSHScan{Ip:"10.10.10.232",
+		Port:47013,
 		UsernamePath:"./resource/username_ssh.txt",
 		PassWordPath:"./resource/password_ssh.txt",
 		Concurrent:50,

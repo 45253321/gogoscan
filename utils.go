@@ -12,3 +12,4 @@ func ItertoolsProduct(first ,second []string) *[][2]string{
 	}
 	return &result
 }
+
