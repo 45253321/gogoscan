@@ -105,13 +105,15 @@ func (self *SSHScan) Scan(){
 	}
 }
 
-func main()  {
-	sc := SSHScan{Ip:"10.10.10.232",
-		Port:47013,
+func SSHScanStart(ip string, port int, concurrent int) error{
+	sc := SSHScan{Ip: ip,
+		Port: port,
 		UsernamePath:"./resource/username_ssh.txt",
 		PassWordPath:"./resource/password_ssh.txt",
-		Concurrent:50,
+		Concurrent: concurrent,
 		PasswordBurst: []BurstCase{}}
+
 	sc.Scan()
 	fmt.Println("The ParseResult: ", sc.PasswordBurst)
+	return nil
 }
