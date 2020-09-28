@@ -79,6 +79,7 @@ func sshConnect(input <-chan BurstCase, result chan <- BurstCase){
 
 }
 
+// test
 func (self *SSHScan) Scan(){
 	usernameLines := resource.ReadLines(self.UsernamePath)
 	passwordLines := resource.ReadLines(self.PassWordPath)
