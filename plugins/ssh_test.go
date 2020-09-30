@@ -1,4 +1,4 @@
-package main
+package plugins
 
 import (
 	"fmt"
@@ -20,8 +20,8 @@ func BenchmarkSSHScan_Scan(b *testing.B) {
 			ssc := SSHScan{}
 			ssc.Ip="10.10.10.232"
 			ssc.Port=47013
-			ssc.UsernamePath="./resource/username_ssh.txt"
-			ssc.PassWordPath="./resource/password_ssh.txt"
+			ssc.UsernamePath="./resource/username.txt"
+			ssc.PassWordPath="./resource/password.txt"
 			ssc.Concurrent=20
 			ssc.Scan()
 			fmt.Println("Have Found Password Num:  ", len(ssc.PasswordBurst))

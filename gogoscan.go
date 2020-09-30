@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/urfave/cli/v2"
+	"gogoscan/engine"
 	"log"
 	"os"
 )
@@ -50,7 +51,7 @@ func main() {
 			},
 		},
 		Action: func(c *cli.Context) error {
-			scanEngine := ScanEngine{
+			scanEngine := engine.ScanEngine{
 					Ip:               c.String("ip"),
 					Port:             c.Int("port"),
 					Protocol:         c.String("protocol"),
@@ -60,10 +61,10 @@ func main() {
 			}
 
 			if scanEngine.UsernameTextPath == ""{
-				scanEngine.UsernameTextPath = "./resource/username_ssh.txt"
+				scanEngine.UsernameTextPath = "./resource/username.txt"
 			}
 			if scanEngine.PasswordTextPath == "" {
-				scanEngine.PasswordTextPath = "./resource/password_ssh.txt"
+				scanEngine.PasswordTextPath = "./resource/password.txt"
 			}
 			scanEngine.Run()
 			fmt.Println("Result: ", scanEngine.PasswordBurst)

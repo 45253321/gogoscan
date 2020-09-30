@@ -1,4 +1,4 @@
-package resource
+package utils
 
 import (
 	"bufio"
@@ -10,6 +10,9 @@ import (
 
 var ErrFileNotFound = errors.New("The file not found")
 
+// ---------------------------------------------------------
+// 读取文件
+// ---------------------------------------------------------
 func readFile(path string) (*[]string, error){
 
 	content := make([]string, 0, 0)
@@ -36,6 +39,9 @@ func readFile(path string) (*[]string, error){
 	return &content, nil
 }
 
+// ---------------------------------------------------------
+// 读取行
+// ---------------------------------------------------------
 func ReadLines(path string) *[]string {
 	contents, err := readFile(path)
 	if err != nil{

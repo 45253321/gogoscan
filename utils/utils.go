@@ -1,5 +1,4 @@
-package main
-
+package utils
 
 // 致敬python的itertools.product
 func ItertoolsProduct(first ,second []string) *[][2]string{
